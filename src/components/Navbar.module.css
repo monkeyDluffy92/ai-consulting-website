@@ -104,17 +104,6 @@
   color: var(--accent);
 }
 
-@media (max-width: 768px) {
-  .navLinks {
-    display: none;
-  }
-  .hamburger {
-    display: flex;
-  }
-  .mobileMenu {
-    display: flex;
-  }
-}
 
 /* Mobile Menu Styles */
 .hamburger {
@@ -169,4 +158,16 @@
 
 .mobileLink:hover {
   color: var(--accent);
+}
+
+@media (max-width: 768px) {
+  .navLinks {
+    display: none;
+  }
+  .hamburger {
+    display: flex;
+  }
+  .mobileMenu {
+    display: flex;
+  }
 }

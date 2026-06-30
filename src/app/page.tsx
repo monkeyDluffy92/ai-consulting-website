@@ -178,7 +178,7 @@ export default function Home() {
             <div className={styles.caseCompany}>Luma</div>
             <h3 className={styles.caseTitle}>Generative AI Content Engine</h3>
             <p className={styles.caseDesc}>
-              We integrated a custom fine-tuned LLM pipeline into Luma's core product, allowing them to automate high-quality asset generation. The AI natively hooks into their creative workflow, learning brand voice and stylistic preferences over time.
+              We built Luma from the ground up for an enterprise client struggling to scale their creative output while maintaining a consistent brand voice. This generative AI engine automates high-quality asset generation. At the client's explicit request, the core architecture was published to GitHub to foster open-source community auditing.
             </p>
             <div className={styles.caseMetrics}>
               <div className={styles.metric}>
@@ -196,7 +196,7 @@ export default function Home() {
             <div className={styles.caseCompany}>SmartSync</div>
             <h3 className={styles.caseTitle}>Autonomous Supply Chain Agents</h3>
             <p className={styles.caseDesc}>
-              Deployed a multi-agent system to autonomously monitor global I/O telemetry data. SmartSync's agents now instantly reroute shipments and re-order inventory without human intervention when they detect disruptions.
+              SmartSync was engineered for a logistics client facing massive losses due to unpredictable supply chain disruptions. We deployed an autonomous multi-agent system that monitors global telemetry and instantly reroutes shipments. To drive industry standards, the client mandated this framework be available on GitHub.
             </p>
             <div className={styles.caseMetrics}>
               <div className={styles.metric}>

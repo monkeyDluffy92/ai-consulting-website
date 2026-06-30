@@ -12,7 +12,7 @@ const caseStudies = [
     id: "luma",
     company: "Luma",
     title: "Generative AI Content Engine",
-    description: "We integrated a custom fine-tuned LLM pipeline into Luma's core product, allowing them to automate high-quality asset generation. The AI natively hooks into their creative workflow, learning brand voice and stylistic preferences over time to ensure perfect brand alignment across massive content volumes.",
+    description: "We built Luma from the ground up for an enterprise client struggling to scale their creative output while maintaining a consistent brand voice. This generative AI engine automates high-quality asset generation and natively hooks into creative workflows. At the client's explicit request, the core architecture was published to GitHub to foster open-source community auditing and collaboration.",
     tech: ["Next.js", "GPT-4 Custom Model", "Vector DB", "Redis"],
     metrics: [
       { value: "10x", label: "Asset Velocity" },
@@ -23,7 +23,7 @@ const caseStudies = [
     id: "smartsync",
     company: "SmartSync",
     title: "Autonomous Supply Chain Agents",
-    description: "Deployed a multi-agent system to autonomously monitor global I/O telemetry data. SmartSync's agents now instantly reroute shipments, predict hardware failures, and re-order inventory without human intervention when they detect disruptions, fundamentally shifting them to a proactive supply chain model.",
+    description: "SmartSync was engineered for a global logistics client facing massive losses due to unpredictable supply chain disruptions. We deployed a multi-agent system that autonomously monitors telemetry and instantly reroutes shipments without human intervention. To drive industry-wide standards, the client mandated this agentic framework be available on GitHub.",
     tech: ["Agentic Framework", "IoT Telemetry", "Node.js", "Kafka"],
     metrics: [
       { value: "99.9%", label: "Uptime" },

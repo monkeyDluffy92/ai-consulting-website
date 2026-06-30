@@ -1,0 +1,384 @@
+.cardContainer {
+  background-color: transparent;
+  width: 100%;
+  perspective: 1000px;
+  cursor: pointer;
+  min-height: 400px;
+  z-index: 10;
+}
+
+.cardInner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: left;
+  transition: transform 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  transform-style: preserve-3d;
+  min-height: inherit;
+}
+
+.flipped .cardInner {
+  transform: rotateY(180deg);
+}
+
+.cardFront, .cardBack {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+  border-radius: 16px;
+  border: 1px solid var(--glass-border);
+  padding: 2.5rem;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.cardFront {
+  background: #111111;
+  z-index: 2;
+}
+
+.cardBack {
+  background: #0a0a0a;
+  transform: rotateY(180deg);
+  border-color: var(--accent);
+  box-shadow: inset 0 0 40px rgba(92, 212, 212, 0.05);
+}
+
+/* Front Content */
+.frontContent {
+  position: relative;
+  z-index: 2;
+  margin-top: auto; /* Push to bottom */
+}
+
+.serviceIcon {
+  font-size: 2.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.serviceTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  letter-spacing: -0.03em;
+  color: var(--foreground);
+}
+
+.serviceDesc {
+  color: #888;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.flipPrompt {
+  font-size: 0.85rem;
+  color: var(--accent);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  opacity: 0.7;
+  transition: opacity 0.3s ease;
+  margin-top: auto;
+}
+
+.cardContainer:hover .flipPrompt {
+  opacity: 1;
+}
+
+/* Back Content */
+.backTitle {
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+  color: var(--accent);
+  border-bottom: 1px solid rgba(92, 212, 212, 0.2);
+  padding-bottom: 0.5rem;
+}
+
+.backSection {
+  margin-bottom: 1.2rem;
+}
+
+.backLabel {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: #666;
+  margin-bottom: 0.3rem;
+}
+
+.backText {
+  font-size: 0.9rem;
+  color: #ccc;
+  line-height: 1.5;
+}
+
+.highlightImpact {
+  color: #fff;
+  font-weight: 600;
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.2);
+}
+
+/* Visual Effects (Full background of front card) */
+.visualEffect {
+  position: absolute;
+  inset: 0;
+  opacity: 0.15;
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+  transition: opacity 0.4s ease;
+  mask-image: radial-gradient(circle at center, black 10%, transparent 100%);
+  -webkit-mask-image: radial-gradient(circle at top, black 50%, transparent 100%);
+}
+
+.cardContainer:hover .visualEffect {
+  opacity: 0.35;
+}
+
+/* 1. LLM Nodes */
+.llmNetwork {
+  position: absolute;
+  inset: 0;
+}
+.node {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 12px 2px var(--accent-glow);
+  animation: pulseNode 3s infinite alternate ease-in-out;
+}
+.connectionLine {
+  position: absolute;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  animation: pulseLine 4s infinite alternate ease-in-out;
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+@keyframes pulseNode {
+  0% { transform: scale(1); opacity: 0.3; }
+  100% { transform: scale(2); opacity: 1; box-shadow: 0 0 20px 4px var(--accent-glow); }
+}
+@keyframes pulseLine {
+  0% { opacity: 0.1; }
+  100% { opacity: 0.8; }
+}
+
+/* 2. AI Gears */
+.gearContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  filter: grayscale(1) sepia(1) hue-rotate(160deg) brightness(1.2);
+  opacity: 0.2;
+}
+.gear {
+  position: absolute;
+  animation: spinGear 20s linear infinite;
+}
+.gearReverse {
+  animation: spinGearReverse 15s linear infinite;
+}
+.gearMassive { font-size: 20rem; top: -50px; left: -50px; opacity: 0.3; }
+.gearLarge { font-size: 10rem; bottom: -20px; right: -20px; opacity: 0.6; }
+.gearMedium { font-size: 5rem; top: 30%; right: 10%; opacity: 0.8; }
+@keyframes spinGear { 100% { transform: rotate(360deg); } }
+@keyframes spinGearReverse { 100% { transform: rotate(-360deg); } }
+
+/* 3. Data Stream (Matrix) */
+.streamContainer {
+  position: absolute;
+  inset: -20%;
+  display: flex;
+  justify-content: space-around;
+  transform: rotate(15deg); /* angled rain */
+}
+.stream {
+  width: 2px;
+  background: linear-gradient(to bottom, transparent, var(--accent), #fff);
+  animation: matrixFall 2s linear infinite;
+  box-shadow: 0 0 10px var(--accent-glow);
+}
+@keyframes matrixFall {
+  0% { transform: translateY(-100%); opacity: 0; }
+  50% { opacity: 1; }
+  100% { transform: translateY(200%); opacity: 0; }
+}
+
+/* 4. Analytics Wireframe */
+.analyticsGrid {
+  position: absolute;
+  inset: 0;
+  background-image: 
+    linear-gradient(rgba(92, 212, 212, 0.1) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(92, 212, 212, 0.1) 1px, transparent 1px);
+  background-size: 30px 30px;
+  transform: perspective(500px) rotateX(60deg) scale(2);
+  transform-origin: bottom center;
+}
+.sweepingLine {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 200%;
+  height: 2px;
+  background: var(--accent);
+  box-shadow: 0 0 20px 5px var(--accent-glow);
+  animation: sweepUp 4s linear infinite;
+}
+@keyframes sweepUp {
+  0% { transform: translateY(0); opacity: 1; }
+  100% { transform: translateY(-800px); opacity: 0; }
+}
+
+/* 5. Cloud Pulse (Servers) */
+.serverStack {
+  position: absolute;
+  inset: 10%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  transform: perspective(600px) rotateY(-20deg);
+}
+.serverBlade {
+  width: 100%;
+  height: 10%;
+  border: 1px solid rgba(92, 212, 212, 0.3);
+  background: rgba(0,0,0,0.5);
+  border-radius: 4px;
+  position: relative;
+  box-shadow: inset 0 0 15px rgba(92, 212, 212, 0.1);
+  animation: serverBlink 2s infinite alternate;
+}
+.serverBlade::before {
+  content: '';
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  box-shadow: 0 0 8px var(--accent-glow);
+}
+@keyframes serverBlink {
+  0% { box-shadow: inset 0 0 5px rgba(92, 212, 212, 0); border-color: rgba(92, 212, 212, 0.1); }
+  100% { box-shadow: inset 0 0 30px rgba(92, 212, 212, 0.3); border-color: rgba(92, 212, 212, 0.6); }
+}
+
+/* 6. Shield Scanner */
+.shieldWrapper {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+}
+.codeMatrix {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  font-family: monospace;
+  color: var(--accent);
+  font-size: 0.8rem;
+  padding: 20px;
+  opacity: 0.3;
+}
+.scannerLaser {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: var(--accent-secondary);
+  box-shadow: 0 0 30px 10px var(--accent-secondary-glow);
+  animation: scanLaser 3s ease-in-out infinite alternate;
+}
+@keyframes scanLaser {
+  0% { transform: translateY(-10px); }
+  100% { transform: translateY(400px); }
+}
+
+/* 7. App Dev Floating UI */
+.appDevContainer {
+  position: absolute;
+  inset: 0;
+}
+.floatingCodeBlock {
+  position: absolute;
+  bottom: -50px;
+  height: 20px;
+  background: rgba(92, 212, 212, 0.2);
+  border: 1px solid var(--accent);
+  border-radius: 4px;
+  box-shadow: 0 0 10px var(--accent-glow);
+  animation: floatUp 8s linear infinite;
+}
+@keyframes floatUp {
+  0% { transform: translateY(0) scale(0.8); opacity: 0; }
+  20% { opacity: 1; }
+  80% { opacity: 1; }
+  100% { transform: translateY(-500px) scale(1.2); opacity: 0; }
+}
+
+/* 8. Legacy Modernize */
+.modernizeEffect {
+  position: absolute;
+  inset: 0;
+}
+.legacyGrid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(#333 1px, transparent 1px), linear-gradient(90deg, #333 1px, transparent 1px);
+  background-size: 20px 20px;
+  opacity: 0.5;
+}
+.neonWave {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, transparent, var(--accent), transparent);
+  opacity: 0.8;
+  mix-blend-mode: color-dodge;
+  animation: modernWave 4s infinite linear;
+}
+@keyframes modernWave {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(100%); }
+}
+
+/* 9. Strategy Radar */
+.radarContainer {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.radarRing {
+  position: absolute;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  animation: radarExpand 3s infinite linear;
+}
+.radarSweep {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent 70%, rgba(92, 212, 212, 0.4) 100%);
+  animation: spinGear 4s infinite linear;
+}
+@keyframes radarExpand {
+  0% { width: 0; height: 0; opacity: 1; }
+  100% { width: 400px; height: 400px; opacity: 0; }
+}

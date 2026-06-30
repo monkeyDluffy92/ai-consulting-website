@@ -1,0 +1,153 @@
+.pageContainer {
+  min-height: 100vh;
+  padding-top: 120px;
+  background-color: var(--background);
+  position: relative;
+  overflow: hidden;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 5rem;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.title {
+  font-size: 5rem;
+  font-weight: 800;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+  text-shadow: 0 0 40px rgba(92, 212, 212, 0.2);
+}
+
+.subtitle {
+  font-size: 1.4rem;
+  color: #aaa;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.6;
+}
+
+.contentSection {
+  max-width: 1200px;
+  margin: 0 auto 8rem;
+  padding: 0 5%;
+  position: relative;
+  z-index: 2;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.textContent h2 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--foreground);
+  margin-bottom: 1.5rem;
+  letter-spacing: -0.02em;
+}
+
+.textContent p {
+  font-size: 1.1rem;
+  color: #888;
+  line-height: 1.8;
+  margin-bottom: 1.5rem;
+}
+
+.visualContent {
+  position: relative;
+  height: 400px;
+  background: #0a0a0a;
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Abstract spinning core for visual interest */
+.core {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, transparent, var(--accent), transparent);
+  animation: spin 4s linear infinite;
+  box-shadow: 0 0 50px var(--accent-glow);
+  position: relative;
+}
+
+.core::after {
+  content: '';
+  position: absolute;
+  inset: 5px;
+  background: #0a0a0a;
+  border-radius: 50%;
+}
+
+@keyframes spin {
+  100% { transform: rotate(360deg); }
+}
+
+.statsGrid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 2rem;
+  margin-top: 4rem;
+}
+
+.statCard {
+  background: #111;
+  border: 1px solid rgba(255,255,255,0.05);
+  border-radius: 16px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.statCard:hover {
+  transform: translateY(-5px);
+  border-color: rgba(92, 212, 212, 0.3);
+}
+
+.statValue {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: var(--accent);
+  margin-bottom: 0.5rem;
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
+.statLabel {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.15em;
+  color: #666;
+}
+
+.footer {
+  text-align: center;
+  padding: 3rem 5%;
+  color: #666;
+  font-size: 0.9rem;
+  border-top: 1px solid var(--glass-border);
+}
+
+@media (max-width: 900px) {
+  .grid {
+    grid-template-columns: 1fr;
+  }
+  .title {
+    font-size: 3.5rem;
+  }
+  .statsGrid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -11,6 +11,10 @@ export default function Navbar() {
   const pathname = usePathname();
 
   useEffect(() => {
+    setHasScrolled(false);
+  }, [pathname]);
+
+  useEffect(() => {
     const handleScroll = () => {
       // Toggle state based on scroll position (e.g. past 50px)
       if (window.scrollY > 50) {
@@ -27,7 +31,7 @@ export default function Navbar() {
 
   return (
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
-      <Link href="/" className={styles.logoContainer} style={{textDecoration: 'none'}}>
+      <Link key={pathname} href="/" className={styles.logoContainer} style={{textDecoration: 'none'}}>
         {/* The 'x' bounces based on scroll direction */}
         <span className={`${styles.logoX} ${hasScrolled ? styles.noDelay : ''}`}>x</span>
         

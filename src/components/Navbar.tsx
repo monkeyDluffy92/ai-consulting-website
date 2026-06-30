@@ -1,11 +1,13 @@
 "use client";
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -36,9 +38,9 @@ export default function Navbar() {
       
       {/* Desktop Links */}
       <div className={styles.navLinks}>
-        <Link href="/services" className={styles.navLink} style={{textDecoration: 'none'}}>Services</Link>
-        <Link href="/case-studies" className={styles.navLink} style={{textDecoration: 'none'}}>Case Studies</Link>
-        <Link href="/about" className={styles.navLink} style={{textDecoration: 'none'}}>About</Link>
+        <Link href="/services" className={`${styles.navLink} ${pathname === '/services' ? styles.active : ''}`} style={{textDecoration: 'none'}}>Services</Link>
+        <Link href="/case-studies" className={`${styles.navLink} ${pathname === '/case-studies' ? styles.active : ''}`} style={{textDecoration: 'none'}}>Case Studies</Link>
+        <Link href="/about" className={`${styles.navLink} ${pathname === '/about' ? styles.active : ''}`} style={{textDecoration: 'none'}}>About</Link>
         <Link href="/#contact" className={styles.navLink} style={{textDecoration: 'none'}}>Contact</Link>
       </div>
 
@@ -55,9 +57,9 @@ export default function Navbar() {
       {/* Mobile Menu Dropdown */}
       {isMobileMenuOpen && (
         <div className={styles.mobileMenu}>
-          <Link href="/services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Services</Link>
-          <Link href="/case-studies" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Case Studies</Link>
-          <Link href="/about" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>About</Link>
+          <Link href="/services" className={`${styles.mobileLink} ${pathname === '/services' ? styles.activeMobile : ''}`} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Services</Link>
+          <Link href="/case-studies" className={`${styles.mobileLink} ${pathname === '/case-studies' ? styles.activeMobile : ''}`} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Case Studies</Link>
+          <Link href="/about" className={`${styles.mobileLink} ${pathname === '/about' ? styles.activeMobile : ''}`} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>About</Link>
           <Link href="/#contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Contact</Link>
         </div>
       )}

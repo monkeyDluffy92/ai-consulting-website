@@ -104,6 +104,11 @@
   color: var(--accent);
 }
 
+.navLink.active {
+  color: var(--accent);
+  text-shadow: 0 0 15px var(--accent-glow);
+}
+
 
 /* Mobile Menu Styles */
 .hamburger {
@@ -158,6 +163,11 @@
 
 .mobileLink:hover {
   color: var(--accent);
+}
+
+.mobileLink.activeMobile {
+  color: var(--accent);
+  text-shadow: 0 0 15px var(--accent-glow);
 }
 
 @media (max-width: 768px) {

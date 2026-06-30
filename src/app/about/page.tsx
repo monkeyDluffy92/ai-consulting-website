@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
+import GridBackground from "@/components/GridBackground";
 
 export const metadata = {
   title: "About | xElement",
@@ -10,6 +11,7 @@ export const metadata = {
 export default function AboutPage() {
   return (
     <main className={styles.pageContainer}>
+      <GridBackground />
       <Navbar />
       
       <header className={styles.header}>

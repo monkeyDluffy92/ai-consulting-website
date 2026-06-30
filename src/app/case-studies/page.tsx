@@ -1,6 +1,7 @@
 import React from "react";
 import styles from "./page.module.css";
 import Navbar from "@/components/Navbar";
+import GridBackground from "../../components/GridBackground";
 
 export const metadata = {
   title: "Case Studies | xElement",
@@ -79,6 +80,7 @@ const caseStudies = [
 export default function CaseStudiesPage() {
   return (
     <main className={styles.pageContainer}>
+      <GridBackground />
       <Navbar />
       
       <header className={styles.header}>

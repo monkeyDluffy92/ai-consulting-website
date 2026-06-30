@@ -5,6 +5,7 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -33,12 +34,33 @@ export default function Navbar() {
         <span className={styles.logoLement}>lement</span>
       </Link>
       
+      {/* Desktop Links */}
       <div className={styles.navLinks}>
         <Link href="/services" className={styles.navLink} style={{textDecoration: 'none'}}>Services</Link>
         <Link href="/case-studies" className={styles.navLink} style={{textDecoration: 'none'}}>Case Studies</Link>
         <Link href="/about" className={styles.navLink} style={{textDecoration: 'none'}}>About</Link>
         <Link href="/#contact" className={styles.navLink} style={{textDecoration: 'none'}}>Contact</Link>
       </div>
+
+      {/* Hamburger Icon */}
+      <div 
+        className={styles.hamburger} 
+        onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+      >
+        <div className={`${styles.bar} ${isMobileMenuOpen ? styles.open : ""}`}></div>
+        <div className={`${styles.bar} ${isMobileMenuOpen ? styles.open : ""}`}></div>
+        <div className={`${styles.bar} ${isMobileMenuOpen ? styles.open : ""}`}></div>
+      </div>
+
+      {/* Mobile Menu Dropdown */}
+      {isMobileMenuOpen && (
+        <div className={styles.mobileMenu}>
+          <Link href="/services" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Services</Link>
+          <Link href="/case-studies" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Case Studies</Link>
+          <Link href="/about" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>About</Link>
+          <Link href="/#contact" className={styles.mobileLink} onClick={() => setIsMobileMenuOpen(false)} style={{textDecoration: 'none'}}>Contact</Link>
+        </div>
+      )}
     </nav>
   );
 }

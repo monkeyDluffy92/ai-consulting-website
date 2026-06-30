@@ -6,6 +6,7 @@ import styles from "./Navbar.module.css";
 
 export default function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false);
+  const [hasScrolled, setHasScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
 
@@ -14,6 +15,7 @@ export default function Navbar() {
       // Toggle state based on scroll position (e.g. past 50px)
       if (window.scrollY > 50) {
         setIsScrolled(true);
+        setHasScrolled(true);
       } else {
         setIsScrolled(false);
       }
@@ -26,8 +28,8 @@ export default function Navbar() {
   return (
     <nav className={`${styles.nav} ${isScrolled ? styles.scrolled : ""}`}>
       <Link href="/" className={styles.logoContainer} style={{textDecoration: 'none'}}>
-        {/* The 'x' bounces in, and stays visible */}
-        <span className={styles.logoX}>x</span>
+        {/* The 'x' bounces based on scroll direction */}
+        <span className={`${styles.logoX} ${hasScrolled ? styles.noDelay : ''}`}>x</span>
         
         {/* The 'e' slides in, and stays visible */}
         <span className={styles.logoE}>e</span>

@@ -63,7 +63,9 @@
 .visualContent {
   position: relative;
   height: 400px;
-  background: #0a0a0a;
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
   overflow: hidden;
@@ -103,8 +105,10 @@
 }
 
 .statCard {
-  background: #111;
-  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(20, 20, 20, 0.4);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid var(--glass-border);
   border-radius: 16px;
   padding: 2.5rem;
   text-align: center;

@@ -54,7 +54,7 @@ export default function CaseStudiesPage() {
       </section>
 
       <footer className={styles.footer}>
-        <p>&copy; {new Date().getFullYear()} xElement. All rights reserved.</p>
+        <p>&copy; {new Date().getFullYear()} xElement. All rights reserved. Automating the future of business.</p>
       </footer>
     </main>
   );

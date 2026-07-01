@@ -228,7 +228,7 @@ export default function Home() {
 
       {/* Footer */}
       <footer className={styles.footer}>
-        © {new Date().getFullYear()} xelement. All rights reserved. Inspired by modern web design.
+        © {new Date().getFullYear()} xelement. All rights reserved. Automating the future of business.
       </footer>
     </main>
     </>

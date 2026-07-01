@@ -62,10 +62,10 @@ export default function ServicesPage() {
   return (
     <main className={styles.main}>
       <header className={styles.header}>
-        <ScrollReveal width="fit-content" yOffset={30}>
+        <ScrollReveal yOffset={30}>
           <h1 className={styles.title}>Our Capabilities</h1>
         </ScrollReveal>
-        <ScrollReveal width="fit-content" delay={0.2} yOffset={30}>
+        <ScrollReveal delay={0.2} yOffset={30}>
           <p className={styles.subtitle}>
             We don't just consult. We architect, build, and deploy the AI systems that define the next generation of enterprise technology.
           </p>

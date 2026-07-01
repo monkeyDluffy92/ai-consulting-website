@@ -81,10 +81,10 @@ export default function CaseStudiesPage() {
     <main className={styles.pageContainer}>
       
       <header className={styles.header}>
-        <ScrollReveal width="fit-content" yOffset={30}>
+        <ScrollReveal yOffset={30}>
           <h1 className={styles.title}>Proven Impact</h1>
         </ScrollReveal>
-        <ScrollReveal width="fit-content" delay={0.2} yOffset={30}>
+        <ScrollReveal delay={0.2} yOffset={30}>
           <p className={styles.subtitle}>
             Discover how we build high-performance web platforms, intelligent mobile apps, and autonomous agent systems that drive massive ROI for our enterprise clients.
           </p>

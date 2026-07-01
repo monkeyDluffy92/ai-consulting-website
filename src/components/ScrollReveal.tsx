@@ -12,8 +12,9 @@ interface ScrollRevealProps {
 
 export default function ScrollReveal({ children, width = "100%", delay = 0, yOffset = 50 }: ScrollRevealProps) {
   return (
-    <div style={{ width, position: "relative" }}>
+    <div style={{ width, position: "relative", height: "100%" }}>
       <motion.div
+        style={{ height: "100%" }}
         initial={{ opacity: 0, y: yOffset }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10%" }}

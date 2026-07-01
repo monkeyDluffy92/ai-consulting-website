@@ -12,10 +12,10 @@ export default function AboutPage() {
     <main className={styles.pageContainer}>
       
       <header className={styles.header}>
-        <ScrollReveal width="fit-content" yOffset={30}>
+        <ScrollReveal yOffset={30}>
           <h1 className={styles.title}>The AI-First Engineering Firm</h1>
         </ScrollReveal>
-        <ScrollReveal width="fit-content" delay={0.2} yOffset={30}>
+        <ScrollReveal delay={0.2} yOffset={30}>
           <p className={styles.subtitle}>
             We don't just write code; we engineer autonomous systems. At xElement, we are redefining what's possible for the modern enterprise.
           </p>

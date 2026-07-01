@@ -1,7 +1,6 @@
 import styles from "./page.module.css";
 import InteractiveServiceCard from "@/components/InteractiveServiceCard";
 import ScrollReveal from "@/components/ScrollReveal";
-import ParallaxBackground from "@/components/ParallaxBackground";
 import { caseStudies } from "@/data/caseStudies";
 
 const servicesData = [
@@ -118,7 +117,6 @@ const servicesData = [
 export default function Home() {
   return (
     <>
-      <ParallaxBackground />
       <main className={styles.main}>
 
       {/* Hero Section */}

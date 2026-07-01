@@ -44,12 +44,12 @@ export default function AboutPage() {
               </p>
             </ScrollReveal>
           </div>
-          <div className={styles.visualContent}>
-            <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.2}>
+            <div className={styles.visualContent}>
               {/* An abstract CSS representation of a futuristic AI core */}
               <div className={styles.core}></div>
-            </ScrollReveal>
-          </div>
+            </div>
+          </ScrollReveal>
         </div>
 
         <div className={styles.statsGrid}>

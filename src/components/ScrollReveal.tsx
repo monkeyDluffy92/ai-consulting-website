@@ -6,15 +6,16 @@ import { ReactNode } from "react";
 interface ScrollRevealProps {
   children: ReactNode;
   width?: "fit-content" | "100%";
+  height?: "fit-content" | "100%";
   delay?: number;
   yOffset?: number;
 }
 
-export default function ScrollReveal({ children, width = "100%", delay = 0, yOffset = 50 }: ScrollRevealProps) {
+export default function ScrollReveal({ children, width = "100%", height = "100%", delay = 0, yOffset = 50 }: ScrollRevealProps) {
   return (
-    <div style={{ width, position: "relative", height: "100%" }}>
+    <div style={{ width, position: "relative", height }}>
       <motion.div
-        style={{ height: "100%" }}
+        style={{ height }}
         initial={{ opacity: 0, y: yOffset }}
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: true, margin: "-10%" }}

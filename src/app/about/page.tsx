@@ -44,7 +44,7 @@ export default function AboutPage() {
               </p>
             </ScrollReveal>
           </div>
-          <ScrollReveal delay={0.2}>
+          <ScrollReveal delay={0.2} height="fit-content">
             <div className={styles.visualContent}>
               {/* An abstract CSS representation of a futuristic AI core */}
               <div className={styles.core}></div>

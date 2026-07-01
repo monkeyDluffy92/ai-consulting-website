@@ -119,17 +119,17 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className={styles.hero}>
-        <ScrollReveal yOffset={30}>
+        <ScrollReveal width="fit-content" yOffset={30}>
           <h1 className={styles.heroTitle}>
             The missing <span className={styles.xGlow}>x</span> element in your tech.
           </h1>
         </ScrollReveal>
-        <ScrollReveal delay={0.2} yOffset={30}>
+        <ScrollReveal width="fit-content" delay={0.2} yOffset={30}>
           <p className={styles.heroSubtitle}>
             We are an AI-native consultancy that architects the entirety of your technological ecosystem. From injecting machine learning into legacy systems to building autonomous workflows and bespoke AI software—we are the definitive, end-to-end partner you've been looking for.
           </p>
         </ScrollReveal>
-        <ScrollReveal delay={0.4} yOffset={30}>
+        <ScrollReveal width="fit-content" delay={0.4} yOffset={30}>
         <a href="#contact" className={styles.ctaButton}>
           Book a Discovery Call
         </a>
@@ -271,15 +271,15 @@ export default function Home() {
 
       {/* Contact Section */}
       <section className={styles.contact} id="contact">
-        <ScrollReveal>
+        <ScrollReveal width="fit-content">
           <h2 className={styles.sectionTitle}>Ready to Automate the Future?</h2>
         </ScrollReveal>
-        <ScrollReveal delay={0.1}>
+        <ScrollReveal width="fit-content" delay={0.1}>
           <p className={styles.contactSubtitle}>
             Let's discuss how AI can transform your enterprise operations.
           </p>
         </ScrollReveal>
-        <ScrollReveal delay={0.2}>
+        <ScrollReveal width="fit-content" delay={0.2}>
           <a href="mailto:hello@example.com" className={styles.ctaButton}>
           Get in Touch
         </a>

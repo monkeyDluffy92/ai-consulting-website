@@ -1,6 +1,7 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import styles from "./InteractiveServiceCard.module.css";
 
 interface CardProps {
@@ -25,6 +26,15 @@ export default function InteractiveServiceCard({
 }: CardProps) {
   const [isFlipped, setIsFlipped] = useState(false);
   const [isMounted, setIsMounted] = useState(false);
+  const cardRef = useRef<HTMLDivElement>(null);
+
+  const { scrollYProgress } = useScroll({
+    target: cardRef,
+    offset: ["start end", "end start"]
+  });
+
+  // Shift the background visual effect from -15% to 15% as it scrolls through viewport
+  const y = useTransform(scrollYProgress, [0, 1], ["-15%", "15%"]);
 
   useEffect(() => {
     setIsMounted(true);
@@ -32,13 +42,14 @@ export default function InteractiveServiceCard({
 
   return (
     <div
+      ref={cardRef}
       className={`${styles.cardContainer} ${isFlipped ? styles.flipped : ""}`}
       onClick={() => setIsFlipped(!isFlipped)}
     >
       <div className={styles.cardInner}>
         {/* FRONT */}
         <div className={styles.cardFront}>
-          <div className={`${styles.visualEffect} ${styles[visualEffectType]}`}>
+          <motion.div style={{ y }} className={`${styles.visualEffect} ${styles[visualEffectType]}`}>
             {isMounted && (
               <>
                 {visualEffectType === "llm-nodes" && (
@@ -131,7 +142,7 @@ export default function InteractiveServiceCard({
                 )}
               </>
             )}
-          </div>
+          </motion.div>
           
           <div className={styles.frontContent}>
             <div className={styles.serviceIcon}>{icon}</div>

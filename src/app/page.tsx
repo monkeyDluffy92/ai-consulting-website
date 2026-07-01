@@ -1,5 +1,6 @@
 import styles from "./page.module.css";
 import InteractiveServiceCard from "@/components/InteractiveServiceCard";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const servicesData = [
   {
@@ -118,15 +119,21 @@ export default function Home() {
 
       {/* Hero Section */}
       <section className={styles.hero}>
-        <h1 className={styles.heroTitle}>
-          The missing <span className={styles.xGlow}>x</span> element in your tech.
-        </h1>
-        <p className={styles.heroSubtitle}>
-          We are an AI-native consultancy that architects the entirety of your technological ecosystem. From injecting machine learning into legacy systems to building autonomous workflows and bespoke AI software—we are the definitive, end-to-end partner you've been looking for.
-        </p>
+        <ScrollReveal yOffset={30}>
+          <h1 className={styles.heroTitle}>
+            The missing <span className={styles.xGlow}>x</span> element in your tech.
+          </h1>
+        </ScrollReveal>
+        <ScrollReveal delay={0.2} yOffset={30}>
+          <p className={styles.heroSubtitle}>
+            We are an AI-native consultancy that architects the entirety of your technological ecosystem. From injecting machine learning into legacy systems to building autonomous workflows and bespoke AI software—we are the definitive, end-to-end partner you've been looking for.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.4} yOffset={30}>
         <a href="#contact" className={styles.ctaButton}>
           Book a Discovery Call
         </a>
+        </ScrollReveal>
       </section>
 
       {/* Tech Stack Marquee */}
@@ -154,9 +161,12 @@ export default function Home() {
 
       {/* Services Section */}
       <section className={styles.section} id="services">
-        <h2 className={styles.sectionTitle}>Our Capabilities</h2>
+        <ScrollReveal>
+          <h2 className={styles.sectionTitle}>Our Capabilities</h2>
+        </ScrollReveal>
         <div className={styles.servicesGrid}>
-          {servicesData.map((service) => (
+          {servicesData.map((service, index) => (
+            <ScrollReveal key={service.id} delay={index * 0.1}>
             <InteractiveServiceCard
               key={service.id}
               id={service.id}
@@ -166,97 +176,114 @@ export default function Home() {
               visualEffectType={service.visualEffectType}
               backContent={service.backContent}
             />
+            </ScrollReveal>
           ))}
         </div>
       </section>
 
       {/* Case Studies Section */}
       <section className={styles.section} id="case-studies">
-        <h2 className={styles.sectionTitle}>Proven Impact</h2>
+        <ScrollReveal>
+          <h2 className={styles.sectionTitle}>Proven Impact</h2>
+        </ScrollReveal>
         <div className={styles.caseStudiesGrid}>
-          <div className={styles.caseCard}>
-            <div className={styles.caseCompany}>Luma</div>
-            <h3 className={styles.caseTitle}>Generative AI Content Engine</h3>
-            <p className={styles.caseDesc}>
-              We built Luma from the ground up for an enterprise client struggling to scale their creative output while maintaining a consistent brand voice. This generative AI engine automates high-quality asset generation. At the client's explicit request, the core architecture was published to GitHub to foster open-source community auditing.
-            </p>
-            <div className={styles.caseMetrics}>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>10x</span>
-                <span className={styles.metricLabel}>Asset Velocity</span>
-              </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>-60%</span>
-                <span className={styles.metricLabel}>Cost per Asset</span>
+          <ScrollReveal delay={0.1}>
+            <div className={styles.caseCard}>
+              <div className={styles.caseCompany}>Luma</div>
+              <h3 className={styles.caseTitle}>Generative AI Content Engine</h3>
+              <p className={styles.caseDesc}>
+                We built Luma from the ground up for an enterprise client struggling to scale their creative output while maintaining a consistent brand voice. This generative AI engine automates high-quality asset generation. At the client's explicit request, the core architecture was published to GitHub to foster open-source community auditing.
+              </p>
+              <div className={styles.caseMetrics}>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>10x</span>
+                  <span className={styles.metricLabel}>Asset Velocity</span>
+                </div>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>-60%</span>
+                  <span className={styles.metricLabel}>Cost per Asset</span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
           
-          <div className={styles.caseCard}>
-            <div className={styles.caseCompany}>SmartSync</div>
-            <h3 className={styles.caseTitle}>Autonomous Supply Chain Agents</h3>
-            <p className={styles.caseDesc}>
-              SmartSync was engineered for a logistics client facing massive losses due to unpredictable supply chain disruptions. We deployed an autonomous multi-agent system that monitors global telemetry and instantly reroutes shipments. To drive industry standards, the client mandated this framework be available on GitHub.
-            </p>
-            <div className={styles.caseMetrics}>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>99.9%</span>
-                <span className={styles.metricLabel}>Uptime</span>
-              </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>$4M+</span>
-                <span className={styles.metricLabel}>Saved Annually</span>
+          <ScrollReveal delay={0.2}>
+            <div className={styles.caseCard}>
+              <div className={styles.caseCompany}>SmartSync</div>
+              <h3 className={styles.caseTitle}>Autonomous Supply Chain Agents</h3>
+              <p className={styles.caseDesc}>
+                SmartSync was engineered for a logistics client facing massive losses due to unpredictable supply chain disruptions. We deployed an autonomous multi-agent system that monitors global telemetry and instantly reroutes shipments. To drive industry standards, the client mandated this framework be available on GitHub.
+              </p>
+              <div className={styles.caseMetrics}>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>99.9%</span>
+                  <span className={styles.metricLabel}>Uptime</span>
+                </div>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>$4M+</span>
+                  <span className={styles.metricLabel}>Saved Annually</span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className={styles.caseCard}>
-            <div className={styles.caseCompany}>Nexus Financial</div>
-            <h3 className={styles.caseTitle}>Predictive Market Intelligence</h3>
-            <p className={styles.caseDesc}>
-              Overhauled Nexus's legacy data lakes into a clean, ML-ready pipeline. We built real-time, predictive business intelligence dashboards that forecast market volatility, drastically reducing their risk exposure.
-            </p>
-            <div className={styles.caseMetrics}>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>3.2x</span>
-                <span className={styles.metricLabel}>Faster Reporting</span>
-              </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>+14%</span>
-                <span className={styles.metricLabel}>Portfolio Yield</span>
+          <ScrollReveal delay={0.3}>
+            <div className={styles.caseCard}>
+              <div className={styles.caseCompany}>Nexus Financial</div>
+              <h3 className={styles.caseTitle}>Predictive Market Intelligence</h3>
+              <p className={styles.caseDesc}>
+                Overhauled Nexus's legacy data lakes into a clean, ML-ready pipeline. We built real-time, predictive business intelligence dashboards that forecast market volatility, drastically reducing their risk exposure.
+              </p>
+              <div className={styles.caseMetrics}>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>3.2x</span>
+                  <span className={styles.metricLabel}>Faster Reporting</span>
+                </div>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>+14%</span>
+                  <span className={styles.metricLabel}>Portfolio Yield</span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
 
-          <div className={styles.caseCard}>
-            <div className={styles.caseCompany}>Vanguard Health</div>
-            <h3 className={styles.caseTitle}>Secure Legacy Modernization</h3>
-            <p className={styles.caseDesc}>
-              Wrapped Vanguard's decades-old monolithic healthcare records system with AI-enabled microservices. We also ran extensive AI security audits to ensure HIPAA compliance and zero downtime during the transition.
-            </p>
-            <div className={styles.caseMetrics}>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>0</span>
-                <span className={styles.metricLabel}>Downtime</span>
-              </div>
-              <div className={styles.metric}>
-                <span className={styles.metricValue}>100%</span>
-                <span className={styles.metricLabel}>HIPAA Compliant</span>
+          <ScrollReveal delay={0.4}>
+            <div className={styles.caseCard}>
+              <div className={styles.caseCompany}>Vanguard Health</div>
+              <h3 className={styles.caseTitle}>Secure Legacy Modernization</h3>
+              <p className={styles.caseDesc}>
+                Wrapped Vanguard's decades-old monolithic healthcare records system with AI-enabled microservices. We also ran extensive AI security audits to ensure HIPAA compliance and zero downtime during the transition.
+              </p>
+              <div className={styles.caseMetrics}>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>0</span>
+                  <span className={styles.metricLabel}>Downtime</span>
+                </div>
+                <div className={styles.metric}>
+                  <span className={styles.metricValue}>100%</span>
+                  <span className={styles.metricLabel}>HIPAA Compliant</span>
+                </div>
               </div>
             </div>
-          </div>
+          </ScrollReveal>
         </div>
       </section>
 
       {/* Contact Section */}
       <section className={styles.contact} id="contact">
-        <h2 className={styles.sectionTitle}>Ready to Automate the Future?</h2>
-        <p className={styles.contactSubtitle}>
-          Let's discuss how AI can transform your enterprise operations.
-        </p>
-        <a href="mailto:hello@example.com" className={styles.ctaButton}>
+        <ScrollReveal>
+          <h2 className={styles.sectionTitle}>Ready to Automate the Future?</h2>
+        </ScrollReveal>
+        <ScrollReveal delay={0.1}>
+          <p className={styles.contactSubtitle}>
+            Let's discuss how AI can transform your enterprise operations.
+          </p>
+        </ScrollReveal>
+        <ScrollReveal delay={0.2}>
+          <a href="mailto:hello@example.com" className={styles.ctaButton}>
           Get in Touch
         </a>
+        </ScrollReveal>
       </section>
 
       {/* Footer */}

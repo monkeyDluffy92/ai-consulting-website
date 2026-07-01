@@ -1,4 +1,5 @@
 import styles from "./page.module.css";
+import ScrollReveal from "@/components/ScrollReveal";
 
 const services = [
   {
@@ -61,32 +62,38 @@ export default function ServicesPage() {
   return (
     <main className={styles.main}>
       <header className={styles.header}>
-        <h1 className={styles.title}>Our Capabilities</h1>
-        <p className={styles.subtitle}>
-          We don't just consult. We architect, build, and deploy the AI systems that define the next generation of enterprise technology.
-        </p>
+        <ScrollReveal width="fit-content" yOffset={30}>
+          <h1 className={styles.title}>Our Capabilities</h1>
+        </ScrollReveal>
+        <ScrollReveal width="fit-content" delay={0.2} yOffset={30}>
+          <p className={styles.subtitle}>
+            We don't just consult. We architect, build, and deploy the AI systems that define the next generation of enterprise technology.
+          </p>
+        </ScrollReveal>
       </header>
       
       <div className={styles.servicesList}>
-        {services.map((service) => (
-          <section key={service.id} className={styles.serviceSection}>
-            <div className={styles.stickyIndex}>
-              <span className={styles.indexNumber}>{service.id}</span>
-            </div>
-            <div className={styles.serviceContent}>
-              <h2 className={styles.serviceTitle}>{service.title}</h2>
-              <p className={styles.serviceDesc}>{service.description}</p>
-              
-              <div className={styles.techStack}>
-                <h4 className={styles.techTitle}>Key Technologies</h4>
-                <div className={styles.techTags}>
-                  {service.tech.map(t => (
-                    <span key={t} className={styles.techTag}>{t}</span>
-                  ))}
+        {services.map((service, index) => (
+          <ScrollReveal key={service.id} delay={index * 0.1}>
+            <section className={styles.serviceSection}>
+              <div className={styles.stickyIndex}>
+                <span className={styles.indexNumber}>{service.id}</span>
+              </div>
+              <div className={styles.serviceContent}>
+                <h2 className={styles.serviceTitle}>{service.title}</h2>
+                <p className={styles.serviceDesc}>{service.description}</p>
+                
+                <div className={styles.techStack}>
+                  <h4 className={styles.techTitle}>Key Technologies</h4>
+                  <div className={styles.techTags}>
+                    {service.tech.map(t => (
+                      <span key={t} className={styles.techTag}>{t}</span>
+                    ))}
+                  </div>
                 </div>
               </div>
-            </div>
-          </section>
+            </section>
+          </ScrollReveal>
         ))}
       </div>
     </main>

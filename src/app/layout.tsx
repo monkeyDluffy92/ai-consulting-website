@@ -4,7 +4,6 @@ import "./globals.css";
 import GridBackground from "@/components/GridBackground";
 import Navbar from "@/components/Navbar";
 import SmoothScroll from "@/components/SmoothScroll";
-import ParallaxBackground from "@/components/ParallaxBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -31,7 +30,6 @@ export default function RootLayout({
       <body>
         <SmoothScroll>
           <GridBackground />
-          <ParallaxBackground />
           <Navbar />
           {children}
         </SmoothScroll>

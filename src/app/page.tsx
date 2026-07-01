@@ -1,6 +1,7 @@
 import styles from "./page.module.css";
 import InteractiveServiceCard from "@/components/InteractiveServiceCard";
 import ScrollReveal from "@/components/ScrollReveal";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const servicesData = [
   {
@@ -115,7 +116,9 @@ const servicesData = [
 
 export default function Home() {
   return (
-    <main className={styles.main}>
+    <>
+      <ParallaxBackground />
+      <main className={styles.main}>
 
       {/* Hero Section */}
       <section className={styles.hero}>
@@ -291,5 +294,6 @@ export default function Home() {
         © {new Date().getFullYear()} xelement. All rights reserved. Inspired by modern web design.
       </footer>
     </main>
+    </>
   );
 }

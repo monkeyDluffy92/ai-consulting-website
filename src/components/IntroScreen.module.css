@@ -5,7 +5,13 @@
   pointer-events: all;
   transition: opacity 0.5s ease;
   overflow: hidden;
-  background: var(--background); /* Solid background to hide content until transition is done */
+  
+  /* Mimic the site's grid background to hide content but keep grid */
+  background-color: var(--background);
+  background-size: 50px 50px;
+  background-image: 
+    linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
 }
 
 .introOverlay.fadeOut {
@@ -17,31 +23,28 @@
   position: absolute;
   top: 50%;
   left: 50%;
-  /* Start huge, perfectly crisp */
-  font-size: 45rem; 
-  transform: translate(-50%, -50%) scale(1); 
+  transform: translate(-50%, -50%);
+  font-size: 35vw; /* Start huge and crystal clear */
   font-weight: 700;
   letter-spacing: -0.05em;
   display: flex;
   align-items: center;
-  transform-origin: center center;
   transition: all 1s cubic-bezier(0.77, 0, 0.175, 1);
-  will-change: transform, top, left;
+  will-change: transform, top, left, font-size;
 }
 
 .introLogoContainer.shrink {
   /* Match the exact position of the navbar logo */
   top: 40px; /* Center of the 80px navbar */
   left: 5%;  /* Navbar padding-left is 5% */
-  /* Scale down to 1.5rem (1.5 / 45 = 0.03333333) */
-  transform: translate(0, -50%) scale(0.03333333333);
+  transform: translate(0, -50%);
+  font-size: 1.5rem; /* Shrink font-size directly to remain crisp */
 }
 
 .introX {
-  -webkit-text-stroke: 0.03333em var(--accent-secondary);
+  /* 0.06em stroke scales proportionally (equals ~1.5px when font-size is 1.5rem) */
+  -webkit-text-stroke: 0.06em var(--accent-secondary);
   color: var(--background);
-  /* The glow scales with the font size. Em makes it relative to 45rem. */
-  text-shadow: 0 0 0.05em rgba(92, 212, 212, 0.4); 
 }
 
 .introE {

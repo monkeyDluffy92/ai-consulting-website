@@ -1,11 +1,11 @@
 .introOverlay {
   position: fixed;
   inset: 0;
-  background: var(--background);
   z-index: 99999;
+  pointer-events: all;
   transition: opacity 0.5s ease;
   overflow: hidden;
-  pointer-events: all;
+  /* NO BACKGROUND: This ensures the GridBackground behind it is perfectly visible */
 }
 
 .introOverlay.fadeOut {
@@ -13,80 +13,42 @@
   pointer-events: none;
 }
 
-/* Layer 1: Scrolling Text Background */
-.scrollingLayer {
-  position: absolute;
-  inset: -50%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  background: var(--background);
-}
-
-.scrollingTrack {
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-  transform: rotate(-10deg) scale(1.2);
-  width: 200vw;
-}
-
-.marqueeRow, .marqueeRowReverse {
-  display: flex;
-  white-space: nowrap;
-  font-size: 3rem;
-  font-weight: 800;
-  color: var(--accent);
-  opacity: 0.9;
-  letter-spacing: 0.05em;
-}
-
-.marqueeRow {
-  animation: scrollLeft 30s linear infinite;
-}
-
-.marqueeRowReverse {
-  animation: scrollRight 30s linear infinite;
-}
-
-@keyframes scrollLeft {
-  from { transform: translateX(0); }
-  to { transform: translateX(-20%); }
-}
-
-@keyframes scrollRight {
-  from { transform: translateX(-20%); }
-  to { transform: translateX(0); }
-}
-
-/* Layer 2: Mask Cutout */
-.cutoutLayer {
-  position: absolute;
-  inset: 0;
-  background: var(--background);
-  color: #fff;
-  mix-blend-mode: multiply;
-  pointer-events: none;
-}
-
-.cutoutText {
+.introLogoContainer {
   position: absolute;
   top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-  font-size: 45vw;
-  font-weight: 800;
+  transform: translate(-50%, -50%) scale(30); /* Massive scale */
+  font-size: 1.5rem;
+  font-weight: 700;
   letter-spacing: -0.05em;
-  line-height: 1;
+  display: flex;
+  align-items: center;
+  transform-origin: center center;
   transition: all 1.2s cubic-bezier(0.77, 0, 0.175, 1);
-  white-space: nowrap;
+  will-change: transform, top, left;
 }
 
-.cutoutText.shrink {
+.introLogoContainer.shrink {
+  /* Match the exact position of the navbar logo */
   top: 40px; /* Center of the 80px navbar */
-  left: 5%;  /* Match navbar padding */
-  font-size: 1.5rem; /* Match logo size */
-  transform: translate(0, -50%);
-  color: transparent; /* Makes the multiply blend go black so the logo matches normal navbar colors smoothly */
+  left: 5%;  /* Navbar padding-left is 5% */
+  transform: translate(0, -50%) scale(1);
+}
+
+.introX {
+  -webkit-text-stroke: 1.5px var(--accent-secondary);
+  color: transparent;
+  background-color: transparent;
+  -webkit-background-clip: text;
+  background-size: cover;
+  text-shadow: 0 0 1px rgba(92, 212, 212, 0.8); /* Glowing thin line (scales up with scale(30)!) */
+}
+
+.introE {
+  -webkit-text-stroke: 1px #000;
+  color: transparent;
+  background-color: var(--accent); /* Filled with cyan */
+  -webkit-background-clip: text;
+  background-size: cover;
+  text-shadow: 0 0 1px rgba(0, 0, 0, 0.8); /* Black border glowing */
 }

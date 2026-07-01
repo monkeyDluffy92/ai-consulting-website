@@ -235,11 +235,14 @@
 
 .footer {
   text-align: center;
-  padding: 3rem 5%;
+  padding: 1.5rem 5%;
   color: #666;
   font-size: 0.9rem;
   border-top: 1px solid var(--glass-border);
   margin-top: 4rem;
+  background-color: #000;
+  position: relative;
+  z-index: 10;
 }
 
 /* Case Studies */

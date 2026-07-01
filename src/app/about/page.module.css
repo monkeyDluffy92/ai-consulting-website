@@ -137,10 +137,13 @@
 
 .footer {
   text-align: center;
-  padding: 3rem 5%;
+  padding: 1.5rem 5%;
   color: #666;
   font-size: 0.9rem;
   border-top: 1px solid var(--glass-border);
+  background-color: #000;
+  position: relative;
+  z-index: 10;
 }
 
 @media (max-width: 900px) {

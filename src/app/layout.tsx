@@ -3,6 +3,8 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import GridBackground from "@/components/GridBackground";
 import Navbar from "@/components/Navbar";
+import SmoothScroll from "@/components/SmoothScroll";
+import ParallaxBackground from "@/components/ParallaxBackground";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,9 +29,12 @@ export default function RootLayout({
   return (
     <html lang="en" className={`${geistSans.variable} ${geistMono.variable}`}>
       <body>
-        <GridBackground />
-        <Navbar />
-        {children}
+        <SmoothScroll>
+          <GridBackground />
+          <ParallaxBackground />
+          <Navbar />
+          {children}
+        </SmoothScroll>
       </body>
     </html>
   );
